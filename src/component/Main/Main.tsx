@@ -11,7 +11,10 @@ function Main() {
           <Styled.Note src={Img.NoteImg} />
           <Styled.Pencil src={Img.PencilImg} />
         </Styled.Wrapper>
-        <Phone />
+        <Styled.RightWrapper>
+          <Styled.EearPhones src={Img.EarphonesImg} />
+          <Phone />
+        </Styled.RightWrapper>
       </Styled.Desk>
     </Styled.Container>
   );

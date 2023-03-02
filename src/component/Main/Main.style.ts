@@ -32,4 +32,19 @@ export const Note = styled.img`
 export const Pencil = styled.img`
   height: 40vh;
   margin-top: 30vh;
+  min-height: 241px;
+`;
+
+export const RightWrapper = styled.div`
+  position: relative;
+  height: 130vh;
+  display: flex;
+  flex-direction: column;
+`;
+
+export const EearPhones = styled.img`
+  position: relative;
+  top: -15vh;
+  height: 55vh;
+  min-height: 290px;
 `;
