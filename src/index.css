@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Seymour+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Gothic+A1:wght@600&family=Seymour+One&display=swap");
 
 @font-face {
   font-family: "Seymour One", sans-serif;
@@ -6,4 +6,15 @@
     format("woff");
   font-weight: normal;
   font-style: normal;
+}
+
+@font-face {
+  font-family: "Gothic A1", sans-serif;
+  src: url("https://fonts.googleapis.com/css2?family=Gothic+A1:wght@600&family=Seymour+One&display=swap");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: "Gothic A1", sans-serif;
 }
