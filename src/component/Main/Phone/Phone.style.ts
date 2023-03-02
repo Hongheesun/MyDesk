@@ -66,4 +66,34 @@ export const Message = styled(Player)`
   height: 70%;
   margin-top: 7%;
   color: #b93434;
+
+  &:hover {
+    animation: wobble-horizontal 1s infinite;
+  }
+
+  @keyframes wobble-horizontal {
+    16.65% {
+      transform: translateX(8px);
+    }
+
+    33.3% {
+      transform: translateX(-6px);
+    }
+
+    49.95% {
+      transform: translateX(4px);
+    }
+
+    66.6% {
+      transform: translateX(-2px);
+    }
+
+    83.25% {
+      transform: translateX(1px);
+    }
+
+    100% {
+      transform: translateX(0);
+    }
+  }
 `;
