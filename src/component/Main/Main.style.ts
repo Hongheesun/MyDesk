@@ -9,6 +9,7 @@ export const Container = styled.div`
   background-color: #8f9a8d;
   overflow: hidden;
 `;
+
 export const Desk = styled.div`
   position: relative;
   display: flex;
@@ -17,9 +18,18 @@ export const Desk = styled.div`
   height: 100vh;
 `;
 
+export const Wrapper = styled.div`
+  display: flex;
+`;
+
 export const Note = styled.img`
   height: 75vh;
   min-height: 500px;
   margin-top: 15vh;
   cursor: pointer;
+`;
+
+export const Pencil = styled.img`
+  height: 40vh;
+  margin-top: 30vh;
 `;

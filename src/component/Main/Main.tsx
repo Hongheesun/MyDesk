@@ -7,7 +7,10 @@ function Main() {
   return (
     <Styled.Container>
       <Styled.Desk>
-        <Styled.Note src={Img.NoteImg} />
+        <Styled.Wrapper>
+          <Styled.Note src={Img.NoteImg} />
+          <Styled.Pencil src={Img.PencilImg} />
+        </Styled.Wrapper>
         <Phone />
       </Styled.Desk>
     </Styled.Container>
