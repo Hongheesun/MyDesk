@@ -41,10 +41,3 @@ export const RightWrapper = styled.div`
   display: flex;
   flex-direction: column;
 `;
-
-export const EearPhones = styled.img`
-  position: relative;
-  top: -15vh;
-  height: 55vh;
-  min-height: 290px;
-`;
