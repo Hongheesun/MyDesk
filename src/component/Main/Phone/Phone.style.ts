@@ -5,8 +5,8 @@ import * as Img from "../../../assets/images/index";
 export const PhoneWrapper = styled.div`
   position: relative;
   left: 20%;
-  bottom: 5%;
-  height: 50vh;
+  bottom: 12%;
+  height: 60vh;
   min-height: 280px;
   background-image: url(${Img.PhoneImg});
   background-size: contain;
@@ -19,16 +19,17 @@ export const PhoneItems = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 41%;
+  width: 50%;
   height: 67%;
-  margin-top: 12%;
-  margin-left: 10%;
+  margin-top: 14%;
+  margin-left: 12%;
   background-image: url(${randomImage});
   background-size: cover;
   opacity: 0.9;
 `;
 
 export const DateTime = styled.div`
+  width: 100%;
   color: #fff;
   text-align: center;
   line-height: 1.2;
@@ -41,7 +42,7 @@ export const Date = styled.div`
 
 export const Time = styled.div`
   font-family: var(--font-time);
-  font-size: 38px;
+  font-size: 32px;
 `;
 
 export const Widget = styled.div`

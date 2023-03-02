@@ -23,7 +23,7 @@ export const Wrapper = styled.div`
 `;
 
 export const Note = styled.img`
-  height: 75vh;
+  height: 83vh;
   min-height: 500px;
   margin-top: 15vh;
   cursor: pointer;
