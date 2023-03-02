@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import * as Styled from "./Main.style";
 import * as Img from "../../assets/images/index";
 import Phone from "./Phone/Phone";
-import EarPhones from "../EarPhones/EarPhones";
+import EarPhones from "./EarPhones/EarPhones";
 
 function Main() {
   return (

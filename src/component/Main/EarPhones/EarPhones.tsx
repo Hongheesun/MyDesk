@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import * as Styled from "./EarPhones.style";
-import { EarphonesImg } from "../../assets/images";
+import { EarphonesImg } from "../../../assets/images";
 import { useRecoilValue } from "recoil";
-import { musicAtom } from "../../atoms";
+import { musicAtom } from "../../../atoms";
 
 function EarPhones() {
   const music = useRecoilValue(musicAtom);
