@@ -20,12 +20,16 @@ function Phone() {
 
   return (
     <Styled.PhoneWrapper>
-      <Styled.DateTime>
-        <Styled.Date>{date}</Styled.Date>
-        <Styled.Time>{time}</Styled.Time>
-      </Styled.DateTime>
-      <Styled.WallPaper />
-      <Styled.Phone src={Img.PhoneImg} />
+      <Styled.PhoneItems>
+        <Styled.DateTime>
+          <Styled.Date>{date}</Styled.Date>
+          <Styled.Time>{time}</Styled.Time>
+        </Styled.DateTime>
+        <Styled.Widget>
+          <Styled.Player>▶</Styled.Player>
+          <Styled.Message>New Message</Styled.Message>
+        </Styled.Widget>
+      </Styled.PhoneItems>
     </Styled.PhoneWrapper>
   );
 }
