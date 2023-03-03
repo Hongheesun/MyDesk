@@ -5,3 +5,8 @@ export const musicAtom = atom({
   key: "music",
   default: new Audio(Music),
 });
+
+export const messageAtom = atom<boolean>({
+  key: "message",
+  default: false,
+});
