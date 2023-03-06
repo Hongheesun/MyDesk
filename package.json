@@ -49,20 +49,5 @@
   },
   "devDependencies": {
     "@types/styled-components": "^5.1.26"
-  },
-  "overrides": {
-    "@types/react": "^17.0.38"
-  },
-  "description": "",
-  "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Hongheesun/MyDesk.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Hongheesun/MyDesk/issues"
-  },
-  "homepage": "https://github.com/Hongheesun/MyDesk#readme"
+  }
 }

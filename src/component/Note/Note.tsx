@@ -1,50 +1,57 @@
 import React, { useRef, useState, useEffect } from "react";
 import * as Styled from "./Note.style";
-import firebase from "firebase/compat/app";
-import "firebase/compat/auth";
-import "firebase/compat/firestore";
-import "firebase/analytics";
-import { useCollectionData } from "react-firebase-hooks/firestore";
+import {
+  query,
+  collection,
+  getDocs,
+  orderBy,
+  onSnapshot,
+} from "firebase/firestore";
 
-firebase.initializeApp({
-  apiKey: "AIzaSyDKGlrQWKVZm8OzSQBO8jQ3sAegfeooE8c",
-  authDomain: "weathertogether-f0922.firebaseapp.com",
-  projectId: "weathertogether-f0922",
-  storageBucket: "weathertogether-f0922.appspot.com",
-  messagingSenderId: "393268972611",
-  appId: "1:393268972611:web:fdb5a919af69448cb718f6",
-  measurementId: "G-E5X2NET7D3",
-});
+import firebaseDB from "../../firebase";
+
+interface IContent {
+  createdAt: any;
+  feeling: string;
+  id: string;
+  text: string;
+}
 
 function Note() {
-  const firestore = firebase.firestore();
-  const dummy = useRef<HTMLDivElement>(null);
-  const diaryRef = firestore.collection("diaries");
-  // const query = diaryRef.orderBy("createdAt").limit(25);
-  const query = diaryRef.orderBy("createdAt", "asc");
-  const [diaries] = useCollectionData(query);
-  const [feelingValue, setFeelingValue] = useState("");
-  const [reivewValue, setReviewValue] = useState("");
+  const [reviews, setReviews] = useState<IContent[]>([]);
+  useEffect(() => {
+    const q = query(collection(firebaseDB, "reviews"), orderBy("createdAt"));
+    onSnapshot(q, (snapshot: any) => {
+      console.log(snapshot.docs);
+      const nweetArr = snapshot.docs.map((doc: any) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      setReviews(nweetArr);
+    });
+  }, []);
+  // const [diaries] = useCollectionData(query);
+  // const [feelingValue, setFeelingValue] = useState("");
+  // const [reivewValue, setReviewValue] = useState("");
   const [showReview, setShowReview] = useState<boolean>(false);
   const [content, setContent] = useState<string>();
 
-  const inputReview = async (e: React.FormEvent<HTMLInputElement>) => {
-    e.preventDefault();
+  // const inputReview = async (e: React.FormEvent<HTMLInputElement>) => {
+  //   e.preventDefault();
 
-    await diaryRef.add({
-      feeling: feelingValue,
-      text: reivewValue,
-      createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-    });
-    setFeelingValue("");
-    setReviewValue("");
-    dummy.current && dummy.current.scrollIntoView({ behavior: "smooth" });
-  };
+  //   await diaryRef.add({
+  //     feeling: feelingValue,
+  //     text: reivewValue,
+  //     createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+  //   });
+  //   setFeelingValue("");
+  //   setReviewValue("");
+  //   dummy.current && dummy.current.scrollIntoView({ behavior: "smooth" });
+  // };
 
   const openReviewContent = (id: number) => {
     setShowReview(true);
-    console.log(diaries![id].text);
-    setContent(diaries![id].text);
+    setContent(reviews[id].text);
   };
 
   const closeReviewContent = () => {
@@ -55,8 +62,8 @@ function Note() {
     <Styled.Container>
       <Styled.Wrapper>
         <Styled.Reviews>
-          {diaries &&
-            diaries.map((d, id) => (
+          {reviews &&
+            reviews.map((d, id) => (
               <Styled.Review
                 key={id}
                 onClick={() => {
@@ -64,7 +71,6 @@ function Note() {
                 }}
               />
             ))}
-          <span ref={dummy}></span>
         </Styled.Reviews>
         <button
           className="diaryBtn"

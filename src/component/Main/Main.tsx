@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import * as Styled from "./Main.style";
 import * as Img from "../../assets/images/index";
 import Phone from "./Phone/Phone";
@@ -9,7 +10,9 @@ function Main() {
     <Styled.Container>
       <Styled.Desk>
         <Styled.Wrapper>
-          <Styled.Note src={Img.NoteImg} />
+          <Link to="/note">
+            <Styled.Note src={Img.NoteImg} />
+          </Link>
           <Styled.Pencil src={Img.PencilImg} />
         </Styled.Wrapper>
         <Styled.RightWrapper>
