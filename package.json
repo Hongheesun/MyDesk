@@ -6,13 +6,16 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "@types/firebase": "^3.2.1",
     "@types/jest": "^27.5.2",
     "@types/node": "^16.18.13",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
     "@types/react-router-dom": "^5.3.3",
+    "firebase": "^9.17.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-firebase-hooks": "^5.1.1",
     "react-router-dom": "^6.8.2",
     "react-scripts": "5.0.1",
     "recoil": "^0.7.7",
@@ -46,5 +49,20 @@
   },
   "devDependencies": {
     "@types/styled-components": "^5.1.26"
-  }
+  },
+  "overrides": {
+    "@types/react": "^17.0.38"
+  },
+  "description": "",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hongheesun/MyDesk.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Hongheesun/MyDesk/issues"
+  },
+  "homepage": "https://github.com/Hongheesun/MyDesk#readme"
 }
