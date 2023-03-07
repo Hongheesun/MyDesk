@@ -9,10 +9,6 @@ const Container = styled.div`
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   width: 100%;
-  padding: 10px;
-  background-color: #ffffff;
-  border: 1px solid black;
-  border-radius: 10px;
 `;
 
 interface Props {
@@ -71,8 +67,6 @@ const DateBox = ({
   const holidayLocDate = holiday.map((data: Holiday) => {
     return String(data?.locdate);
   });
-
-  console.log(holidayLocDate);
 
   return (
     <Container>

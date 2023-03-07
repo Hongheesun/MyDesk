@@ -14,7 +14,7 @@ const Container = styled.div<ContainerProps>`
   align-items: center;
 
   p {
-    padding: 5px;
+    padding: 6px;
     color: ${({ sameMonth }) => (sameMonth ? "black" : `lightgray`)};
     ${({ sameDay }) =>
       sameDay
@@ -41,6 +41,7 @@ const Container = styled.div<ContainerProps>`
 
     &:hover {
      border: 1px solid #8f9a8d;
+     padding: 5px;
      border-radius: 5px;
   }
   }

@@ -6,18 +6,58 @@ import EarPhones from "./EarPhones/EarPhones";
 import { Paper } from "../../assets/sounds";
 import { randomLifeQuotes } from "../../functions/lifeQuotes";
 import Calendar from "../Calendar/Calendar";
+import {
+  query,
+  collection,
+  getDocs,
+  orderBy,
+  onSnapshot,
+  addDoc,
+} from "firebase/firestore";
+
+import firebaseDB from "../../firebase";
+
+interface IContent {
+  createdAt?: any;
+  id?: string;
+  feeling: string;
+  text: string;
+}
 
 function Main() {
-  const [note, setNote] = useState<boolean>(false);
   const paperSound = new Audio(Paper);
+  const [note, setNote] = useState<boolean>(false);
+  const [reviews, setReviews] = useState<IContent[]>([]);
+  const [showReview, setShowReview] = useState<boolean>(false);
+  const [feeling, setFeeling] = useState<string>("");
+  const [text, setText] = useState<string>("");
+  const [content, setContent] = useState<IContent>({
+    feeling: "",
+    text: "",
+  });
 
   const openNote = () => {
     setNote(true);
     paperSound.play();
-    paperSound.volume = 0.1;
+    paperSound.volume = 0.3;
   };
+
   const closeNote = () => {
     setNote(false);
+  };
+
+  const inputReview = async () => {
+    await addDoc(collection(firebaseDB, "reviews"), {
+      feeling: feeling,
+      text: text,
+      createdAt: new Date(),
+    });
+    setFeeling("");
+    setText("");
+  };
+
+  const openReviewContent = () => {
+    setShowReview(true);
   };
 
   return (
@@ -28,7 +68,32 @@ function Main() {
             <Styled.Note src={Img.NoteImg} onClick={openNote} />
           ) : (
             <Styled.NoteWrapper>
-              <Calendar />
+              <Styled.NoteRightWrapper>
+                <Calendar />
+                <Styled.Inputs>
+                  <Styled.InputWrapper>
+                    <Styled.Label>Feeling</Styled.Label>
+                    <Styled.Input
+                      value={feeling}
+                      required
+                      onChange={(e) => setFeeling(e.target.value)}
+                      placeholder="write today feeling..."
+                    />
+                  </Styled.InputWrapper>
+                  <Styled.InputWrapper>
+                    <Styled.Label>Review</Styled.Label>
+                    <Styled.Input
+                      value={text}
+                      required
+                      onChange={(e) => setText(e.target.value)}
+                      placeholder="write today review..."
+                    />
+                  </Styled.InputWrapper>
+                  <button type="submit" onClick={inputReview}>
+                    저장
+                  </button>
+                </Styled.Inputs>
+              </Styled.NoteRightWrapper>
               <Styled.LifeQuotes>{randomLifeQuotes}</Styled.LifeQuotes>
               <Styled.OpenNote src={Img.OpenNote} onClick={closeNote} />
             </Styled.NoteWrapper>
