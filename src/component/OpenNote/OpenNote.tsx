@@ -10,6 +10,8 @@ import {
   where,
   onSnapshot,
   addDoc,
+  deleteDoc,
+  doc,
 } from "firebase/firestore";
 import * as Img from "../../assets/images/index";
 import firebaseDB from "../../firebase";
@@ -18,6 +20,8 @@ import Calendar from "../Calendar/Calendar";
 import { randomLifeQuotes } from "../../functions/lifeQuotes";
 import { calendarDate } from "../../functions/date";
 import { Paris } from "../../assets/videos";
+import { MdOutlineDeleteForever } from "react-icons/md";
+import { HiMinusSm } from "react-icons/hi";
 
 interface IContent {
   createdAt?: string;
@@ -41,6 +45,7 @@ function OpenNote() {
   const closeNote = () => {
     setNote(false);
   };
+  console.log(review);
 
   const handleResizeHeight = useCallback(() => {
     if (ref === null || ref.current === null) {
@@ -92,15 +97,26 @@ function OpenNote() {
     }
   };
 
+  const deleteReview = async () => {
+    await deleteDoc(doc(firebaseDB, "reviews", `${review?.id}`));
+  };
+
   return (
     <Styled.NoteWrapper>
       <Styled.NoteRightWrapper>
         <Calendar />
         <Styled.Wrapper>
           {openReview ? (
-            <div>
+            <Styled.ReviewWrapper>
               {review && (
                 <>
+                  <Styled.MinimumButton
+                    onClick={() => {
+                      setOpenReview(false);
+                    }}
+                  >
+                    <HiMinusSm />
+                  </Styled.MinimumButton>
                   <Styled.InputWrapper>
                     <Styled.Label>Feeling</Styled.Label>
                     <Styled.Text> {review.feeling}</Styled.Text>
@@ -109,9 +125,13 @@ function OpenNote() {
                     <Styled.Label>Reivew</Styled.Label>
                     <Styled.Text> {review.text}</Styled.Text>
                   </Styled.InputWrapper>
+                  <Styled.EditButtons>
+                    <MdOutlineDeleteForever onClick={deleteReview} />
+                    <TfiPencil />
+                  </Styled.EditButtons>
                 </>
               )}
-            </div>
+            </Styled.ReviewWrapper>
           ) : (
             <>
               <Styled.InputWrapper>
@@ -151,13 +171,13 @@ function OpenNote() {
             </>
           )}
         </Styled.Wrapper>
-        {openReview && (
+        {/* {openReview && (
           <TfiPencil
             onClick={() => {
               setOpenReview(false);
             }}
           />
-        )}
+        )} */}
       </Styled.NoteRightWrapper>
       <Styled.Video src={Paris} loop autoPlay muted />
       <Styled.LifeQuotes>{randomLifeQuotes}</Styled.LifeQuotes>

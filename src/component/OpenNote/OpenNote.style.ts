@@ -61,6 +61,10 @@ export const Wrapper = styled.div`
 export const InputWrapper = styled.div`
   display: flex;
   width: 100%;
+
+  &:nth-child(2) {
+    height: 30%;
+  }
 `;
 
 export const Label = styled.div`
@@ -101,7 +105,7 @@ export const AddButton = styled.div`
   align-items: center;
   justify-content: center;
   width: 15%;
-  padding: 7px;
+  padding: 6px;
   font-size: 12px;
   border-radius: 10px;
   border: 2px solid var(--main-green);
@@ -109,4 +113,24 @@ export const AddButton = styled.div`
   color: var(--main-green);
   font-weight: 900;
   margin-left: auto;
+`;
+
+export const ReviewWrapper = styled.div`
+  color: gray;
+  cursor: pointer;
+`;
+
+export const MinimumButton = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  & svg {
+    margin-left: 7px;
+    &:hover {
+      color: lightgray;
+    }
+  }
+`;
+
+export const EditButtons = styled(MinimumButton)`
+  margin-top: 15%;
 `;
