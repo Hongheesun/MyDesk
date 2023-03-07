@@ -9,7 +9,10 @@ import WallPaper3 from "./wallpaper3.png";
 import WallPaper4 from "./wallpaper4.png";
 import WallPaper5 from "./wallpaper5.png";
 import WallPaper6 from "./wallpaper6.png";
+import OpenNote from "./openNote.png";
+import Memo from "./memo.png";
 
 export { NoteImg, ClipImg, EarphonesImg, PencilImg, PhoneImg, 
-  WallPaper1, WallPaper2, WallPaper3, WallPaper4, WallPaper5, WallPaper6
+  WallPaper1, WallPaper2, WallPaper3, WallPaper4, WallPaper5, WallPaper6,
+  OpenNote, Memo
 };

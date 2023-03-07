@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Memo } from "../../assets/images";
 
 export const Container = styled.div`
   display: flex;
@@ -23,7 +24,7 @@ export const Wrapper = styled.div`
 `;
 
 export const Note = styled.img`
-  height: 83vh;
+  height: 88vh;
   min-height: 500px;
   margin-top: 15vh;
   cursor: pointer;
@@ -40,4 +41,31 @@ export const RightWrapper = styled.div`
   height: 130vh;
   display: flex;
   flex-direction: column;
+`;
+
+export const NoteWrapper = styled.div`
+  position: relative;
+  height: 80vh;
+  min-height: 500px;
+  margin-top: 19vh;
+`;
+
+export const OpenNote = styled.img`
+  height: 80vh;
+  min-height: 500px;
+  cursor: pointer;
+`;
+
+export const LifeQuotes = styled.div`
+  position: absolute;
+  top: 16%;
+  left: 11%;
+  width: 150px;
+  height: 120px;
+  padding-top: 47px;
+  background-image: url(${Memo});
+  background-size: contain;
+  background-repeat: no-repeat;
+  font-family: var(--font-note);
+  text-align: center;
 `;
