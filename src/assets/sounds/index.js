@@ -1,3 +1,4 @@
 import Music from "./music.mp3";
+import Paper from "./paper.wav";
 
-export { Music };
+export { Music, Paper };
