@@ -15,13 +15,11 @@ import {
 } from "firebase/firestore";
 import * as Img from "../../assets/images/index";
 import firebaseDB from "../../firebase";
-import { TfiPencil } from "react-icons/tfi";
 import Calendar from "../Calendar/Calendar";
 import { randomLifeQuotes } from "../../functions/lifeQuotes";
 import { calendarDate } from "../../functions/date";
 import { Paris } from "../../assets/videos";
-import { MdOutlineDeleteForever } from "react-icons/md";
-import { HiMinusSm } from "react-icons/hi";
+import * as Icon from "../../assets/icons/index";
 
 interface IContent {
   createdAt?: string;
@@ -108,15 +106,15 @@ function OpenNote() {
         <Styled.Wrapper>
           {openReview ? (
             <Styled.ReviewWrapper>
+              <Styled.MinimumButton
+                onClick={() => {
+                  setOpenReview(false);
+                }}
+              >
+                <Icon.HiMinusSm />
+              </Styled.MinimumButton>
               {review && (
                 <>
-                  <Styled.MinimumButton
-                    onClick={() => {
-                      setOpenReview(false);
-                    }}
-                  >
-                    <HiMinusSm />
-                  </Styled.MinimumButton>
                   <Styled.InputWrapper>
                     <Styled.Label>Feeling</Styled.Label>
                     <Styled.Text> {review.feeling}</Styled.Text>
@@ -125,10 +123,10 @@ function OpenNote() {
                     <Styled.Label>Reivew</Styled.Label>
                     <Styled.Text> {review.text}</Styled.Text>
                   </Styled.InputWrapper>
-                  <Styled.EditButtons>
-                    <MdOutlineDeleteForever onClick={deleteReview} />
-                    <TfiPencil />
-                  </Styled.EditButtons>
+                  <Styled.Button>
+                    <Icon.MdOutlineDeleteForever onClick={deleteReview} />
+                    <Icon.TfiPencil />
+                  </Styled.Button>
                 </>
               )}
             </Styled.ReviewWrapper>
@@ -167,17 +165,12 @@ function OpenNote() {
                   placeholder="write today review..."
                 />
               </Styled.InputWrapper>
-              <Styled.AddButton onClick={inputReview}>Add</Styled.AddButton>
+              <Styled.Button onClick={inputReview}>
+                <Icon.RiAddCircleFill />
+              </Styled.Button>
             </>
           )}
         </Styled.Wrapper>
-        {/* {openReview && (
-          <TfiPencil
-            onClick={() => {
-              setOpenReview(false);
-            }}
-          />
-        )} */}
       </Styled.NoteRightWrapper>
       <Styled.Video src={Paris} loop autoPlay muted />
       <Styled.LifeQuotes>{randomLifeQuotes}</Styled.LifeQuotes>

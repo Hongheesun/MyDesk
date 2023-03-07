@@ -50,13 +50,16 @@ export const NoteRightWrapper = styled.div`
 
 export const Wrapper = styled.div`
   width: 125%;
-  height: 40%;
+  height: 39%;
   padding: 10px;
   margin-left: 12px;
   border-radius: 10px;
   border: 2px solid var(--main-green);
   background-color: #fff;
+  color: gray;
 `;
+
+export const ReviewWrapper = styled.div``;
 
 export const InputWrapper = styled.div`
   display: flex;
@@ -80,7 +83,7 @@ export const Label = styled.div`
 export const Text = styled.div`
   width: 120%;
   font-size: 14px;
-  margin-bottom: 20px;
+  margin-bottom: 5%;
 `;
 
 export const Input = styled.textarea`
@@ -105,7 +108,7 @@ export const AddButton = styled.div`
   align-items: center;
   justify-content: center;
   width: 15%;
-  padding: 6px;
+  padding: 1%;
   font-size: 12px;
   border-radius: 10px;
   border: 2px solid var(--main-green);
@@ -115,22 +118,18 @@ export const AddButton = styled.div`
   margin-left: auto;
 `;
 
-export const ReviewWrapper = styled.div`
-  color: gray;
-  cursor: pointer;
-`;
-
 export const MinimumButton = styled.div`
   display: flex;
   justify-content: flex-end;
   & svg {
     margin-left: 7px;
+    cursor: pointer;
     &:hover {
       color: lightgray;
     }
   }
 `;
 
-export const EditButtons = styled(MinimumButton)`
+export const Button = styled(MinimumButton)`
   margin-top: 15%;
 `;
