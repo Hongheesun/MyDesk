@@ -10,20 +10,32 @@ import {
 } from "firebase/firestore";
 
 import firebaseDB from "../../firebase";
+import { TfiPencil } from "react-icons/tfi";
+import { RiCloseCircleLine } from "react-icons/ri";
+import {
+  CgSmileMouthOpen,
+  CgSmileNeutral,
+  CgSmileNoMouth,
+  CgSmileNone,
+  CgSmileSad,
+} from "react-icons/cg";
 
 interface IContent {
-  createdAt: any;
+  createdAt?: any;
+  id?: string;
   feeling: string;
-  id: string;
   text: string;
 }
 
 function Note() {
   const [reviews, setReviews] = useState<IContent[]>([]);
   const [showReview, setShowReview] = useState<boolean>(false);
-  const [content, setContent] = useState<string>("");
   const [feeling, setFeeling] = useState<string>("");
   const [text, setText] = useState<string>("");
+  const [content, setContent] = useState<IContent>({
+    feeling: "",
+    text: "",
+  });
 
   useEffect(() => {
     const q = query(collection(firebaseDB, "reviews"), orderBy("createdAt"));
@@ -51,7 +63,10 @@ function Note() {
   };
 
   const showDetailContent = (id: number) => {
-    setContent(reviews[id].text);
+    setContent(() => ({
+      ["feeling"]: reviews[id].feeling,
+      ["text"]: reviews[id].text,
+    }));
   };
 
   const closeReviewContent = () => {
@@ -63,57 +78,65 @@ function Note() {
       <Styled.Wrapper>
         <Styled.Reviews>
           {reviews &&
-            reviews.map((d, id) => (
+            reviews.map((review, id) => (
               <Styled.Review
                 key={id}
                 onClick={() => {
                   openReviewContent();
                   showDetailContent(id);
                 }}
-              />
+              >
+                {review.createdAt.toDate().toISOString().split("T", 1)}
+              </Styled.Review>
             ))}
         </Styled.Reviews>
-        <button
-          className="diaryBtn"
-          type="button"
+        {showReview && (
+          <Styled.ReviewContentWrapper>
+            <Styled.CloseButton onClick={closeReviewContent}>
+              <RiCloseCircleLine />
+            </Styled.CloseButton>
+            {content.feeling && (
+              <Styled.ReviewContent>
+                <div>기분 : {content.feeling}</div>
+                <div>회고 : {content.text}</div>
+              </Styled.ReviewContent>
+            )}
+            {!content.feeling && (
+              <div>
+                <div className="diaryInputdiv">
+                  <input
+                    value={feeling}
+                    required
+                    onChange={(e) => setFeeling(e.target.value)}
+                    placeholder="오늘의 기분을 입력해주세요"
+                  />
+                  <input
+                    value={text}
+                    required
+                    onChange={(e) => setText(e.target.value)}
+                    placeholder="일기를 입력해주세요"
+                  />
+                </div>
+
+                <button type="submit" onClick={inputReview}>
+                  저장
+                </button>
+              </div>
+            )}
+          </Styled.ReviewContentWrapper>
+        )}
+      </Styled.Wrapper>
+      <Styled.AddButton>
+        <TfiPencil
           onClick={() => {
             openReviewContent();
-            setContent("");
+            setContent(() => ({
+              ["feeling"]: "",
+              ["text"]: "",
+            }));
           }}
-        >
-          추가
-        </button>
-      </Styled.Wrapper>
-      {showReview && (
-        <Styled.ReviewContent>
-          <Styled.CloseButton onClick={closeReviewContent}>
-            X
-          </Styled.CloseButton>
-          {content && <div>{content}</div>}
-          {!content && (
-            <div>
-              <div className="diaryInput">
-                <input
-                  value={feeling}
-                  required
-                  onChange={(e) => setFeeling(e.target.value)}
-                  placeholder="오늘의 기분을 입력해주세요"
-                />
-                <input
-                  value={text}
-                  required
-                  onChange={(e) => setText(e.target.value)}
-                  placeholder="일기를 입력해주세요"
-                />
-              </div>
-
-              <button type="submit" onClick={inputReview}>
-                저장
-              </button>
-            </div>
-          )}
-        </Styled.ReviewContent>
-      )}
+        />
+      </Styled.AddButton>
     </Styled.Container>
   );
 }
