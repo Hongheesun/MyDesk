@@ -48,13 +48,14 @@ export const NoteRightWrapper = styled.div`
   height: 82%;
 `;
 
-export const Inputs = styled.div`
+export const Wrapper = styled.div`
   width: 125%;
-  height: 64%;
-  padding-top: 50px;
-  background-image: url(${Memo3});
-  background-size: cover;
-  background-repeat: no-repeat;
+  height: 40%;
+  padding: 10px;
+  margin-left: 12px;
+  border-radius: 10px;
+  border: 2px solid var(--main-green);
+  background-color: #fff;
 `;
 
 export const InputWrapper = styled.div`
@@ -64,13 +65,18 @@ export const InputWrapper = styled.div`
 
 export const Label = styled.div`
   width: 40%;
-  margin-right: 10px;
   background-image: url(${MaskingTape});
   background-size: contain;
   background-repeat: no-repeat;
   font-size: 16px;
   font-family: var(--font-note);
   text-align: center;
+`;
+
+export const Text = styled.div`
+  width: 120%;
+  font-size: 14px;
+  margin-bottom: 20px;
 `;
 
 export const Input = styled.textarea`
@@ -96,7 +102,6 @@ export const AddButton = styled.div`
   justify-content: center;
   width: 15%;
   padding: 7px;
-  margin-right: 20px;
   font-size: 12px;
   border-radius: 10px;
   border: 2px solid var(--main-green);

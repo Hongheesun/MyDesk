@@ -46,10 +46,7 @@ function OpenNote() {
     if (ref === null || ref.current === null) {
       return;
     }
-    ref.current.style.height = "90px";
-    ref.current.style.height = ref.current.scrollHeight + "px";
-    // ref.current.style.height = "auto"; //height 초기화
-    // ref.current.style.height = ref.current.scrollHeight + "px";
+    // ref.current.style.height = "70px";
   }, []);
 
   const getData = () => {
@@ -99,53 +96,61 @@ function OpenNote() {
     <Styled.NoteWrapper>
       <Styled.NoteRightWrapper>
         <Calendar />
-        {openReview ? (
-          <div>
-            {review && (
-              <div>
-                <div>기분 : {review.feeling}</div>
-                <div>회고 : {review.text}</div>
-              </div>
-            )}
-          </div>
-        ) : (
-          <Styled.Inputs>
-            <Styled.InputWrapper>
-              <Styled.Label>Feeling</Styled.Label>
-              <Styled.Input
-                value={content.feeling}
-                required
-                onChange={(e) =>
-                  setContent((prev) => ({
-                    ...prev,
-                    ["feeling"]: e.target.value,
-                  }))
-                }
-                placeholder="write today feeling..."
-                maxLength={10}
-              />
-            </Styled.InputWrapper>
-            <Styled.InputWrapper>
-              <Styled.Label>Review</Styled.Label>
-              <Styled.Input
-                ref={ref}
-                value={content.text}
-                required
-                maxLength={90}
-                rows={4}
-                onInput={handleResizeHeight}
-                onChange={(e) =>
-                  setContent((prev) => ({
-                    ...prev,
-                    ["text"]: e.target.value,
-                  }))
-                }
-                placeholder="write today review..."
-              />
-            </Styled.InputWrapper>
-            <Styled.AddButton onClick={inputReview}>Add</Styled.AddButton>
-          </Styled.Inputs>
-        )}
+        <Styled.Wrapper>
+          {openReview ? (
+            <div>
+              {review && (
+                <>
+                  <Styled.InputWrapper>
+                    <Styled.Label>Feeling</Styled.Label>
+                    <Styled.Text> {review.feeling}</Styled.Text>
+                  </Styled.InputWrapper>
+                  <Styled.InputWrapper>
+                    <Styled.Label>Reivew</Styled.Label>
+                    <Styled.Text> {review.text}</Styled.Text>
+                  </Styled.InputWrapper>
+                </>
+              )}
+            </div>
+          ) : (
+            <>
+              <Styled.InputWrapper>
+                <Styled.Label>Feeling</Styled.Label>
+                <Styled.Input
+                  value={content.feeling}
+                  required
+                  onChange={(e) =>
+                    setContent((prev) => ({
+                      ...prev,
+                      ["feeling"]: e.target.value,
+                    }))
+                  }
+                  placeholder="write today feeling..."
+                  maxLength={10}
+                />
+              </Styled.InputWrapper>
+              <Styled.InputWrapper>
+                <Styled.Label>Review</Styled.Label>
+                <Styled.Input
+                  ref={ref}
+                  value={content.text}
+                  required
+                  maxLength={90}
+                  rows={4}
+                  onInput={handleResizeHeight}
+                  onChange={(e) =>
+                    setContent((prev) => ({
+                      ...prev,
+                      ["text"]: e.target.value,
+                    }))
+                  }
+                  placeholder="write today review..."
+                />
+              </Styled.InputWrapper>
+              <Styled.AddButton onClick={inputReview}>Add</Styled.AddButton>
+            </>
+          )}
+        </Styled.Wrapper>
         {openReview && (
           <TfiPencil
             onClick={() => {
