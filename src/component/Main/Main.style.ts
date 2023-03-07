@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Memo, MaskingTape } from "../../assets/images";
 
 export const Container = styled.div`
   display: flex;
@@ -7,7 +6,7 @@ export const Container = styled.div`
   justify-content: center;
   width: 100vw;
   height: 100vh;
-  background-color: #8f9a8d;
+  background-color: var(--main-green);
   overflow: hidden;
 `;
 

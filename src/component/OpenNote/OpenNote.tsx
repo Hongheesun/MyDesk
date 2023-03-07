@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import { useRecoilValue, useRecoilState } from "recoil";
 import { dateAtom, reviewAtom } from "../../atoms";
 import * as Styled from "./OpenNote.style";
@@ -27,6 +27,7 @@ interface IContent {
 }
 
 function OpenNote() {
+  const ref = useRef<HTMLTextAreaElement>(null);
   const date = useRecoilValue(dateAtom);
   const [openReview, setOpenReview] = useRecoilState(reviewAtom);
   const [note, setNote] = useState<boolean>(false);
@@ -40,6 +41,16 @@ function OpenNote() {
   const closeNote = () => {
     setNote(false);
   };
+
+  const handleResizeHeight = useCallback(() => {
+    if (ref === null || ref.current === null) {
+      return;
+    }
+    ref.current.style.height = "90px";
+    ref.current.style.height = ref.current.scrollHeight + "px";
+    // ref.current.style.height = "auto"; //height 초기화
+    // ref.current.style.height = ref.current.scrollHeight + "px";
+  }, []);
 
   const getData = () => {
     const q = query(
@@ -70,16 +81,18 @@ function OpenNote() {
   }, []);
 
   const inputReview = async () => {
-    await addDoc(collection(firebaseDB, "reviews"), {
-      feeling: content.feeling,
-      text: content.text,
-      createdAt: content.createdAt,
-    });
-    setContent(() => ({
-      ["feeling"]: "",
-      ["text"]: "",
-      ["createdAt"]: "",
-    }));
+    if (content.text !== "" && content.feeling !== "") {
+      await addDoc(collection(firebaseDB, "reviews"), {
+        feeling: content.feeling,
+        text: content.text,
+        createdAt: content.createdAt,
+      });
+      setContent(() => ({
+        ["feeling"]: "",
+        ["text"]: "",
+        ["createdAt"]: "",
+      }));
+    }
   };
 
   return (
@@ -109,13 +122,18 @@ function OpenNote() {
                   }))
                 }
                 placeholder="write today feeling..."
+                maxLength={10}
               />
             </Styled.InputWrapper>
             <Styled.InputWrapper>
               <Styled.Label>Review</Styled.Label>
               <Styled.Input
+                ref={ref}
                 value={content.text}
                 required
+                maxLength={90}
+                rows={4}
+                onInput={handleResizeHeight}
                 onChange={(e) =>
                   setContent((prev) => ({
                     ...prev,
@@ -125,16 +143,16 @@ function OpenNote() {
                 placeholder="write today review..."
               />
             </Styled.InputWrapper>
-            <button type="submit" onClick={inputReview}>
-              저장
-            </button>
+            <Styled.AddButton onClick={inputReview}>Add</Styled.AddButton>
           </Styled.Inputs>
         )}
-        <TfiPencil
-          onClick={() => {
-            setOpenReview(false);
-          }}
-        />
+        {openReview && (
+          <TfiPencil
+            onClick={() => {
+              setOpenReview(false);
+            }}
+          />
+        )}
       </Styled.NoteRightWrapper>
       <Styled.Video src={Paris} loop autoPlay muted />
       <Styled.LifeQuotes>{randomLifeQuotes}</Styled.LifeQuotes>
