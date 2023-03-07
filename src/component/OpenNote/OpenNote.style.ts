@@ -28,6 +28,16 @@ export const LifeQuotes = styled.div`
   text-align: center;
 `;
 
+export const Video = styled.video`
+  position: absolute;
+  top: 46%;
+  left: 14%;
+  width: 30%;
+  height: 31%;
+  object-fit: cover;
+  transform: rotate(3deg);
+`;
+
 export const NoteRightWrapper = styled.div`
   position: absolute;
   top: 8.5%;

@@ -17,6 +17,7 @@ import { TfiPencil } from "react-icons/tfi";
 import Calendar from "../Calendar/Calendar";
 import { randomLifeQuotes } from "../../functions/lifeQuotes";
 import { calendarDate } from "../../functions/date";
+import { Paris } from "../../assets/videos";
 
 interface IContent {
   createdAt?: string;
@@ -135,6 +136,7 @@ function OpenNote() {
           }}
         />
       </Styled.NoteRightWrapper>
+      <Styled.Video src={Paris} loop autoPlay muted />
       <Styled.LifeQuotes>{randomLifeQuotes}</Styled.LifeQuotes>
       <Styled.OpenNote src={Img.OpenNote} onClick={closeNote} />
     </Styled.NoteWrapper>
