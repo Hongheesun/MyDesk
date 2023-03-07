@@ -1,4 +1,5 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import * as Styled from "./Note.style";
 import {
   query,
@@ -12,13 +13,7 @@ import {
 import firebaseDB from "../../firebase";
 import { TfiPencil } from "react-icons/tfi";
 import { RiCloseCircleLine } from "react-icons/ri";
-import {
-  CgSmileMouthOpen,
-  CgSmileNeutral,
-  CgSmileNoMouth,
-  CgSmileNone,
-  CgSmileSad,
-} from "react-icons/cg";
+import { FaHome } from "react-icons/fa";
 
 interface IContent {
   createdAt?: any;
@@ -75,6 +70,12 @@ function Note() {
 
   return (
     <Styled.Container>
+      <Styled.HomeButton>
+        <Link to="/">
+          <FaHome />
+        </Link>
+      </Styled.HomeButton>
+
       <Styled.Wrapper>
         <Styled.Reviews>
           {reviews &&
