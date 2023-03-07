@@ -14,7 +14,7 @@ import {
   doc,
 } from "firebase/firestore";
 import * as Img from "../../assets/images/index";
-import firebaseDB from "../../firebase";
+import { firebaseDB } from "../../firebase";
 import Calendar from "../Calendar/Calendar";
 import { randomLifeQuotes } from "../../functions/lifeQuotes";
 import { calendarDate } from "../../functions/date";
