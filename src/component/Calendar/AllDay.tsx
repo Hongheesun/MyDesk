@@ -1,5 +1,8 @@
 import React from "react";
 import styled, { css } from "styled-components";
+import { useSetRecoilState, useRecoilState } from "recoil";
+import { dateAtom, reviewAtom } from "./../../atoms";
+import { calendarDate } from "../../functions/date";
 
 interface ContainerProps {
   sameMonth: boolean;
@@ -56,7 +59,7 @@ interface Props {
   isHoliday: boolean;
 }
 
-const allDay = ({
+const AllDay = ({
   day,
   nowDate,
   setNowDate,
@@ -64,6 +67,8 @@ const allDay = ({
   setClickedDate,
   isHoliday,
 }: Props) => {
+  const setDateState = useSetRecoilState(dateAtom);
+  const [openReview, setOpenReview] = useRecoilState(reviewAtom);
   const nowTime = new Date();
 
   const sameMonth = nowDate.getMonth() === day.getMonth();
@@ -80,6 +85,9 @@ const allDay = ({
 
   const clickDate = () => {
     setClickedDate(day);
+    const [weekname, month, oneDay, year, ...rest] = String(day).split(" ");
+    setDateState(year + "-" + calendarDate(month) + "-" + oneDay);
+    setOpenReview(true);
   };
 
   return (
@@ -95,4 +103,4 @@ const allDay = ({
   );
 };
 
-export default allDay;
+export default AllDay;

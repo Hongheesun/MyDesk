@@ -10,3 +10,13 @@ export const messageAtom = atom<boolean>({
   key: "message",
   default: false,
 });
+
+export const dateAtom = atom<string>({
+  key: "date",
+  default: "",
+});
+
+export const reviewAtom = atom<boolean>({
+  key: "review",
+  default: false,
+});

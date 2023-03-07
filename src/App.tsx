@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Main from "./component/Main/Main";
-import Note from "./component/Note/Note";
+import Note from "./component/OpenNote/OpenNote";
 // import Message from "./component/Message/Message";
 function App() {
   return (
