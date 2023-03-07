@@ -4,6 +4,7 @@ const GlobalStyle = createGlobalStyle`
 
 :root {
 	--font-time: "Seymour One";
+  --font-note: "Shadows Into Light";
 }
 
 html, body, div, span, applet, object, iframe,
