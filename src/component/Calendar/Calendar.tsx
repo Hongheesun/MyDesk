@@ -7,7 +7,7 @@ import { Holiday } from "../../types/type";
 import { Memo2 } from "../../assets/images";
 
 const Container = styled.div`
-  width: 130%;
+  width: 123%;
   height: 80%;
   font-size: 13px;
   text-align: center;

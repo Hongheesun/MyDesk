@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { useRecoilValue, useRecoilState } from "recoil";
-import { dateAtom, reviewAtom } from "../../atoms";
+import { dateAtom, reviewAtom, noteAtom } from "../../atoms";
 import * as Styled from "./OpenNote.style";
 import {
   query,
@@ -32,7 +32,7 @@ function OpenNote() {
   const ref = useRef<HTMLTextAreaElement>(null);
   const date = useRecoilValue(dateAtom);
   const [openReview, setOpenReview] = useRecoilState(reviewAtom);
-  const [note, setNote] = useState<boolean>(false);
+  const [note, setNote] = useRecoilState(noteAtom);
   const [review, setReview] = useState<IContent>();
   const [showReview, setShowReview] = useState<boolean>(false);
   const [content, setContent] = useState<IContent>({
@@ -172,6 +172,13 @@ function OpenNote() {
           )}
         </Styled.Wrapper>
       </Styled.NoteRightWrapper>
+      <Styled.CloseButton
+        onClick={() => {
+          setNote(false);
+        }}
+      >
+        <Icon.TiDeleteOutline />
+      </Styled.CloseButton>
       <Styled.Video src={Paris} loop autoPlay muted />
       <Styled.LifeQuotes>{randomLifeQuotes}</Styled.LifeQuotes>
       <Styled.OpenNote src={Img.OpenNote} onClick={closeNote} />

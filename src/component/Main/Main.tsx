@@ -5,10 +5,12 @@ import Phone from "./Phone/Phone";
 import EarPhones from "./EarPhones/EarPhones";
 import { Paper } from "../../assets/sounds";
 import OpenNote from "../OpenNote/OpenNote";
+import { useRecoilState } from "recoil";
+import { noteAtom } from "../../atoms";
 
 function Main() {
   const paperSound = new Audio(Paper);
-  const [note, setNote] = useState<boolean>(false);
+  const [note, setNote] = useRecoilState(noteAtom);
 
   const openNote = () => {
     setNote(true);

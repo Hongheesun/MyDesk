@@ -17,7 +17,7 @@ export const OpenNote = styled.img`
 export const LifeQuotes = styled.div`
   position: absolute;
   top: 16%;
-  left: 11%;
+  left: 17%;
   width: 150px;
   height: 120px;
   padding-top: 47px;
@@ -31,7 +31,7 @@ export const LifeQuotes = styled.div`
 export const Video = styled.video`
   position: absolute;
   top: 46%;
-  left: 14%;
+  left: 17%;
   width: 30%;
   height: 31%;
   object-fit: cover;
@@ -40,17 +40,17 @@ export const Video = styled.video`
 
 export const NoteRightWrapper = styled.div`
   position: absolute;
-  top: 8.5%;
-  right: 14%;
+  top: 4.5%;
+  right: 8.5%;
   display: flex;
   flex-direction: column;
-  width: 30%;
-  height: 82%;
+  width: 35%;
+  height: 83%;
 `;
 
 export const Wrapper = styled.div`
-  width: 125%;
-  height: 39%;
+  width: 109%;
+  height: 33%;
   padding: 10px;
   margin-left: 12px;
   border-radius: 10px;
@@ -131,5 +131,19 @@ export const MinimumButton = styled.div`
 `;
 
 export const Button = styled(MinimumButton)`
-  margin-top: 15%;
+  padding-top: 15%;
+`;
+
+export const CloseButton = styled.div`
+  position: absolute;
+  top: 8%;
+  left: 7%;
+  color: #656565;
+  font-size: 18px;
+  & svg {
+    cursor: pointer;
+    &:hover {
+      color: black;
+    }
+  }
 `;

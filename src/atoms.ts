@@ -20,3 +20,8 @@ export const reviewAtom = atom<boolean>({
   key: "review",
   default: false,
 });
+
+export const noteAtom = atom<boolean>({
+  key: "note",
+  default: false,
+});
