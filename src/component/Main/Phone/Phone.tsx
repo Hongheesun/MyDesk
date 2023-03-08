@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo } from "react";
 import * as Styled from "./Phone.style";
 import * as Date from "../../../functions/date";
 import { useRecoilValue, useRecoilState } from "recoil";
-import { musicAtom, messageAtom } from "../../../atoms";
+import { musicAtom, openMessageAtom } from "../../../atoms";
 import Message from "../../Message/Message";
 
 function Phone() {
@@ -10,7 +10,7 @@ function Phone() {
   const [date, setDate] = useState<string>("");
   const [musicState, setMusicState] = useState<boolean>(false);
   const music = useRecoilValue(musicAtom);
-  const [message, setMessage] = useRecoilState(messageAtom);
+  const [openMessage, setOpenMessage] = useRecoilState(openMessageAtom);
 
   useEffect(() => {
     setTime(Date.currentTimer());
@@ -36,7 +36,7 @@ function Phone() {
   };
 
   const openMessageModal = () => {
-    setMessage(true);
+    setOpenMessage(true);
   };
 
   return (
@@ -57,7 +57,7 @@ function Phone() {
           </Styled.Message>
         </Styled.Widget>
       </Styled.PhoneItems>
-      {message && <Message />}
+      {openMessage && <Message />}
     </Styled.PhoneWrapper>
   );
 }

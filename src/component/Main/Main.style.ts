@@ -10,6 +10,14 @@ export const Container = styled.div`
   overflow: hidden;
 `;
 
+export const Cookies = styled.img`
+  position: absolute;
+  top: -5%;
+  left: 2%;
+  height: 30vh;
+  min-height: 180px;
+`;
+
 export const Desk = styled.div`
   position: relative;
   display: flex;
@@ -19,13 +27,15 @@ export const Desk = styled.div`
 `;
 
 export const Wrapper = styled.div`
+  position: relative;
   display: flex;
 `;
 
 export const Note = styled.img`
-  height: 88vh;
+  position: relative;
+  height: 74vh;
   min-height: 500px;
-  margin-top: 15vh;
+  margin-top: 24vh;
   cursor: pointer;
 `;
 
@@ -41,7 +51,3 @@ export const RightWrapper = styled.div`
   display: flex;
   flex-direction: column;
 `;
-
-// export const ReviewContentWrapper = styled.div``;
-
-// export const ReviewContent = styled.div``;

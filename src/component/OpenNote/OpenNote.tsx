@@ -5,8 +5,6 @@ import * as Styled from "./OpenNote.style";
 import {
   query,
   collection,
-  getDocs,
-  orderBy,
   where,
   onSnapshot,
   addDoc,
@@ -14,12 +12,13 @@ import {
   doc,
 } from "firebase/firestore";
 import * as Img from "../../assets/images/index";
-import { firebaseDB } from "../../firebase";
+import { firebaseDB, auth } from "../../firebase";
 import Calendar from "../Calendar/Calendar";
 import { randomLifeQuotes } from "../../functions/lifeQuotes";
 import { calendarDate } from "../../functions/date";
 import { Paris } from "../../assets/videos";
 import * as Icon from "../../assets/icons/index";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 interface IContent {
   createdAt?: string;
@@ -31,6 +30,7 @@ interface IContent {
 function OpenNote() {
   const ref = useRef<HTMLTextAreaElement>(null);
   const date = useRecoilValue(dateAtom);
+  const [user] = useAuthState(auth);
   const [openReview, setOpenReview] = useRecoilState(reviewAtom);
   const [note, setNote] = useRecoilState(noteAtom);
   const [review, setReview] = useState<IContent>();
@@ -123,51 +123,57 @@ function OpenNote() {
                     <Styled.Label>Reivew</Styled.Label>
                     <Styled.Text> {review.text}</Styled.Text>
                   </Styled.InputWrapper>
-                  <Styled.Button>
-                    <Icon.MdOutlineDeleteForever onClick={deleteReview} />
-                    <Icon.TfiPencil />
-                  </Styled.Button>
+                  {user?.uid && (
+                    <Styled.Button>
+                      <Icon.MdOutlineDeleteForever onClick={deleteReview} />
+                      <Icon.TfiPencil />
+                    </Styled.Button>
+                  )}
                 </>
               )}
             </Styled.ReviewWrapper>
           ) : (
             <>
-              <Styled.InputWrapper>
-                <Styled.Label>Feeling</Styled.Label>
-                <Styled.Input
-                  value={content.feeling}
-                  required
-                  onChange={(e) =>
-                    setContent((prev) => ({
-                      ...prev,
-                      ["feeling"]: e.target.value,
-                    }))
-                  }
-                  placeholder="write today feeling..."
-                  maxLength={10}
-                />
-              </Styled.InputWrapper>
-              <Styled.InputWrapper>
-                <Styled.Label>Review</Styled.Label>
-                <Styled.Input
-                  ref={ref}
-                  value={content.text}
-                  required
-                  maxLength={90}
-                  rows={4}
-                  onInput={handleResizeHeight}
-                  onChange={(e) =>
-                    setContent((prev) => ({
-                      ...prev,
-                      ["text"]: e.target.value,
-                    }))
-                  }
-                  placeholder="write today review..."
-                />
-              </Styled.InputWrapper>
-              <Styled.Button onClick={inputReview}>
-                <Icon.RiAddCircleFill />
-              </Styled.Button>
+              {user?.uid && (
+                <>
+                  <Styled.InputWrapper>
+                    <Styled.Label>Feeling</Styled.Label>
+                    <Styled.Input
+                      value={content.feeling}
+                      required
+                      onChange={(e) =>
+                        setContent((prev) => ({
+                          ...prev,
+                          ["feeling"]: e.target.value,
+                        }))
+                      }
+                      placeholder="write today feeling..."
+                      maxLength={10}
+                    />
+                  </Styled.InputWrapper>
+                  <Styled.InputWrapper>
+                    <Styled.Label>Review</Styled.Label>
+                    <Styled.Input
+                      ref={ref}
+                      value={content.text}
+                      required
+                      maxLength={90}
+                      rows={4}
+                      onInput={handleResizeHeight}
+                      onChange={(e) =>
+                        setContent((prev) => ({
+                          ...prev,
+                          ["text"]: e.target.value,
+                        }))
+                      }
+                      placeholder="write today review..."
+                    />
+                  </Styled.InputWrapper>
+                  <Styled.Button onClick={inputReview}>
+                    <Icon.RiAddCircleFill />
+                  </Styled.Button>
+                </>
+              )}
             </>
           )}
         </Styled.Wrapper>

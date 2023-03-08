@@ -20,6 +20,7 @@ function Main() {
 
   return (
     <Styled.Container>
+      <Styled.Cookies src={Img.AllCookies} />
       <Styled.Desk>
         <Styled.Wrapper>
           {!note ? (

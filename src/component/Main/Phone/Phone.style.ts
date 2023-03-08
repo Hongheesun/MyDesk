@@ -6,8 +6,8 @@ export const PhoneWrapper = styled.div`
   position: relative;
   left: 20%;
   bottom: 12%;
-  height: 55vh;
-  min-height: 280px;
+  height: 57vh;
+  min-height: 300px;
   background-image: url(${Img.PhoneImg});
   background-size: contain;
   background-repeat: no-repeat;
@@ -19,10 +19,10 @@ export const PhoneItems = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 49.5%;
-  height: 74%;
-  margin-top: 14%;
-  margin-left: 5%;
+  width: 47.3%;
+  height: 68%;
+  margin-top: 18%;
+  margin-left: 11%;
   background-image: url(${randomImage});
   background-size: cover;
   opacity: 0.9;
