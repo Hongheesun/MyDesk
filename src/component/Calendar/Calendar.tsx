@@ -24,7 +24,8 @@ const Header = styled.div`
 
 const CalendarWrapper = styled.div`
   width: 73%;
-  transform: translate(46px, 13px);
+  margin: 0 auto;
+  transform: translatey(42px);
 `;
 
 const requestData = {

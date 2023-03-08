@@ -1,11 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import {
-  query,
-  collection,
-  orderBy,
-  onSnapshot,
-  limit,
-} from "firebase/firestore";
+import { query, collection, orderBy, onSnapshot } from "firebase/firestore";
 import { firebaseDB } from "../../firebase";
 import Chat from "./Chat";
 import SendMessage from "./SendMessage";
@@ -22,6 +16,7 @@ interface IMessage {
 
 const Container = styled.div`
   padding: 5%;
+  padding-bottom: 10%;
 `;
 
 const ChatBox = () => {

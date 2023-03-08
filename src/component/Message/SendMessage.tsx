@@ -10,8 +10,31 @@ interface Iprops {
 
 const Form = styled.form`
   position: fixed;
-  bottom: 20px;
+  bottom: 4%;
   z-index: 2;
+  width: 318px;
+`;
+
+const Input = styled.input`
+  width: 75%;
+  height: 30px;
+  padding: 3px;
+  border: none;
+  border-radius: 5px 0 0 5px;
+  background-color: white;
+
+  &:focus {
+    outline: none;
+  }
+`;
+
+const Button = styled.button`
+  height: 37px;
+  padding: 10px;
+  border: none;
+  background-color: var(--main-green);
+  color: #fff;
+  cursor: pointer;
 `;
 
 const SendMessage = () => {
@@ -39,16 +62,13 @@ const SendMessage = () => {
   };
   return (
     <Form onSubmit={(event) => sendMessage(event)} className="send-message">
-      <input
-        id="messageInput"
-        name="messageInput"
+      <Input
         type="text"
-        className="form-input__input"
         placeholder="type message..."
         value={message}
         onChange={(e) => setMessage(e.target.value)}
       />
-      <button type="submit">Send</button>
+      <Button type="submit">Send</Button>
     </Form>
   );
 };

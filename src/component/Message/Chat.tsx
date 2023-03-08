@@ -27,17 +27,17 @@ const Container = styled.div<IStyleProps>`
   max-width: calc(100% - 50px);
   margin-left: ${(props) => props.uid === "user" && "auto"};
   margin-bottom: 20px;
-  padding: 15px;
+  padding: 13px;
   border-radius: ${(props) =>
     props.uid === "user" ? "10px 10px 0 10px" : "10px 10px 10px 0"};
   background-color: ${(props) => (props.uid === "user" ? "#c4d9db" : "fff")};
   color: #1c2c4c;
-  box-shadow: -1px 1px 1px 1px #1e1e1eae;
+  box-shadow: -1px 1px 1px 1px #929292;
 `;
 
 const Profile = styled.img`
-  width: 35px;
-  height: 35px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   margin-right: 10px;
 `;

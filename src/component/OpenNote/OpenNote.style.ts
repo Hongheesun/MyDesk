@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Memo, Memo3, MaskingTape } from "../../assets/images";
+import { Memo, MaskingTape } from "../../assets/images";
 
 export const NoteWrapper = styled.div`
   position: relative;
@@ -16,8 +16,8 @@ export const OpenNote = styled.img`
 
 export const LifeQuotes = styled.div`
   position: absolute;
-  top: 16%;
-  left: 17%;
+  top: 20%;
+  left: 10%;
   width: 150px;
   height: 120px;
   padding-top: 47px;
@@ -30,8 +30,8 @@ export const LifeQuotes = styled.div`
 
 export const Video = styled.video`
   position: absolute;
-  top: 46%;
-  left: 17%;
+  top: 48%;
+  left: 14%;
   width: 30%;
   height: 31%;
   object-fit: cover;
@@ -40,12 +40,12 @@ export const Video = styled.video`
 
 export const NoteRightWrapper = styled.div`
   position: absolute;
-  top: 4.5%;
-  right: 8.5%;
+  top: 11.5%;
+  right: 9.5%;
   display: flex;
   flex-direction: column;
   width: 35%;
-  height: 83%;
+  height: 78%;
 `;
 
 export const Wrapper = styled.div`
@@ -136,9 +136,9 @@ export const Button = styled(MinimumButton)`
 
 export const CloseButton = styled.div`
   position: absolute;
-  top: 8%;
-  left: 7%;
-  color: #656565;
+  top: 5%;
+  right: 6.3%;
+  color: #000;
   font-size: 18px;
   & svg {
     cursor: pointer;

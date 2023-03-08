@@ -40,10 +40,10 @@ function OpenNote() {
     text: "",
     createdAt: "",
   });
+
   const closeNote = () => {
     setNote(false);
   };
-  console.log(review);
 
   const handleResizeHeight = useCallback(() => {
     if (ref === null || ref.current === null) {
@@ -172,16 +172,12 @@ function OpenNote() {
           )}
         </Styled.Wrapper>
       </Styled.NoteRightWrapper>
-      <Styled.CloseButton
-        onClick={() => {
-          setNote(false);
-        }}
-      >
+      <Styled.CloseButton onClick={closeNote}>
         <Icon.TiDeleteOutline />
       </Styled.CloseButton>
       <Styled.Video src={Paris} loop autoPlay muted />
       <Styled.LifeQuotes>{randomLifeQuotes}</Styled.LifeQuotes>
-      <Styled.OpenNote src={Img.OpenNote} onClick={closeNote} />
+      <Styled.OpenNote src={Img.OpenNote} />
     </Styled.NoteWrapper>
   );
 }
