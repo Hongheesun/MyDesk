@@ -49,7 +49,7 @@ function OpenNote() {
     if (ref === null || ref.current === null) {
       return;
     }
-    // ref.current.style.height = "70px";
+    ref.current.style.height = "100px";
   }, []);
 
   const getData = () => {
@@ -105,24 +105,19 @@ function OpenNote() {
         <Calendar />
         <Styled.Wrapper>
           {openReview ? (
-            <Styled.ReviewWrapper>
-              <Styled.MinimumButton
-                onClick={() => {
-                  setOpenReview(false);
-                }}
-              >
-                <Icon.HiMinusSm />
-              </Styled.MinimumButton>
+            <>
               {review && (
                 <>
-                  <Styled.InputWrapper>
-                    <Styled.Label>Feeling</Styled.Label>
-                    <Styled.Text> {review.feeling}</Styled.Text>
-                  </Styled.InputWrapper>
-                  <Styled.InputWrapper>
-                    <Styled.Label>Reivew</Styled.Label>
-                    <Styled.Text> {review.text}</Styled.Text>
-                  </Styled.InputWrapper>
+                  <Styled.Inputs>
+                    <Styled.InputWrapper>
+                      <Styled.Label>Feeling</Styled.Label>
+                      <Styled.Text> {review.feeling}</Styled.Text>
+                    </Styled.InputWrapper>
+                    <Styled.InputWrapper>
+                      <Styled.Label>Reivew</Styled.Label>
+                      <Styled.Text> {review.text}</Styled.Text>
+                    </Styled.InputWrapper>
+                  </Styled.Inputs>
                   {user?.uid && (
                     <Styled.Button>
                       <Icon.MdOutlineDeleteForever onClick={deleteReview} />
@@ -131,44 +126,46 @@ function OpenNote() {
                   )}
                 </>
               )}
-            </Styled.ReviewWrapper>
+            </>
           ) : (
             <>
               {user?.uid && (
                 <>
-                  <Styled.InputWrapper>
-                    <Styled.Label>Feeling</Styled.Label>
-                    <Styled.Input
-                      value={content.feeling}
-                      required
-                      onChange={(e) =>
-                        setContent((prev) => ({
-                          ...prev,
-                          ["feeling"]: e.target.value,
-                        }))
-                      }
-                      placeholder="write today feeling..."
-                      maxLength={10}
-                    />
-                  </Styled.InputWrapper>
-                  <Styled.InputWrapper>
-                    <Styled.Label>Review</Styled.Label>
-                    <Styled.Input
-                      ref={ref}
-                      value={content.text}
-                      required
-                      maxLength={90}
-                      rows={4}
-                      onInput={handleResizeHeight}
-                      onChange={(e) =>
-                        setContent((prev) => ({
-                          ...prev,
-                          ["text"]: e.target.value,
-                        }))
-                      }
-                      placeholder="write today review..."
-                    />
-                  </Styled.InputWrapper>
+                  <Styled.Inputs>
+                    <Styled.InputWrapper>
+                      <Styled.Label>Feeling</Styled.Label>
+                      <Styled.Input
+                        value={content.feeling}
+                        required
+                        onChange={(e) =>
+                          setContent((prev) => ({
+                            ...prev,
+                            ["feeling"]: e.target.value,
+                          }))
+                        }
+                        placeholder="write today feeling..."
+                        maxLength={13}
+                      />
+                    </Styled.InputWrapper>
+                    <Styled.InputWrapper>
+                      <Styled.Label>Review</Styled.Label>
+                      <Styled.Input
+                        ref={ref}
+                        value={content.text}
+                        required
+                        maxLength={90}
+                        rows={4}
+                        onInput={handleResizeHeight}
+                        onChange={(e) =>
+                          setContent((prev) => ({
+                            ...prev,
+                            ["text"]: e.target.value,
+                          }))
+                        }
+                        placeholder="write today review..."
+                      />
+                    </Styled.InputWrapper>
+                  </Styled.Inputs>
                   <Styled.Button onClick={inputReview}>
                     <Icon.RiAddCircleFill />
                   </Styled.Button>
@@ -178,12 +175,9 @@ function OpenNote() {
           )}
         </Styled.Wrapper>
       </Styled.NoteRightWrapper>
-      <Styled.CloseButton onClick={closeNote}>
-        <Icon.TiDeleteOutline />
-      </Styled.CloseButton>
       <Styled.Video src={Paris} loop autoPlay muted />
       <Styled.LifeQuotes>{randomLifeQuotes}</Styled.LifeQuotes>
-      <Styled.OpenNote src={Img.OpenNote} />
+      <Styled.OpenNote src={Img.OpenNote} onClick={closeNote} />
     </Styled.NoteWrapper>
   );
 }

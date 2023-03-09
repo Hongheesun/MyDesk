@@ -50,8 +50,11 @@ export const NoteRightWrapper = styled.div`
 `;
 
 export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 95%;
-  height: 33%;
+  height: 35%;
   padding: 10px;
   margin-left: 12px;
   border-radius: 10px;
@@ -60,7 +63,11 @@ export const Wrapper = styled.div`
   color: gray;
 `;
 
-export const ReviewWrapper = styled.div``;
+export const ReviewWrapper = styled.div`
+  /* display: flex;
+  flex-direction: column;
+  justify-content: space-between; */
+`;
 
 export const InputWrapper = styled.div`
   display: flex;
@@ -85,6 +92,15 @@ export const Text = styled.div`
   width: 120%;
   font-size: 14px;
   margin-bottom: 5%;
+  &:nth-child(2) {
+    line-height: 1.3;
+  }
+`;
+
+export const Inputs = styled.div`
+  /* display: flex;
+  flex-direction: column;
+  justify-content: space-between; */
 `;
 
 export const Input = styled.textarea`
@@ -132,7 +148,7 @@ export const MinimumButton = styled.div`
 `;
 
 export const Button = styled(MinimumButton)`
-  padding-top: 15%;
+  /* padding-top: 15%; */
 `;
 
 export const CloseButton = styled.div`
