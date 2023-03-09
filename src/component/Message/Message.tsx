@@ -4,8 +4,8 @@ import { HiMinusSm } from "../../assets/icons/index";
 import * as Styled from "./Message.style";
 import { auth } from "../../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { GoogleAuthProvider, signInWithRedirect } from "firebase/auth";
 import ChatBox from "./ChatBox";
+import Welcome from "./Welcome";
 
 function MessageWrapper() {
   const setOpenMessage = useSetRecoilState(openMessageAtom);
@@ -15,17 +15,12 @@ function MessageWrapper() {
     setOpenMessage(false);
   };
 
-  const googleSignIn = () => {
-    const provider = new GoogleAuthProvider();
-    signInWithRedirect(auth, provider);
-  };
-
   return (
     <Styled.Container>
       <Styled.Header>
         <HiMinusSm onClick={closeMessageModal} />
       </Styled.Header>
-      {!user ? <button onClick={googleSignIn}>hi</button> : <ChatBox />}
+      {!user ? <Welcome /> : <ChatBox />}
     </Styled.Container>
   );
 }
