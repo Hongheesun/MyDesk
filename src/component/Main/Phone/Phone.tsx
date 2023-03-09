@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo } from "react";
 import * as Styled from "./Phone.style";
 import * as Date from "../../../functions/date";
+import * as Icon from "../../../assets/icons";
 import { useRecoilValue, useRecoilState } from "recoil";
 import { musicAtom, openMessageAtom } from "../../../atoms";
 import Message from "../../Message/Message";
@@ -48,9 +49,13 @@ function Phone() {
         </Styled.DateTime>
         <Styled.Widget>
           {!musicState ? (
-            <Styled.Player onClick={startMusic}>▶</Styled.Player>
+            <Styled.Player onClick={startMusic}>
+              <Icon.TbPlayerPlayFilled />
+            </Styled.Player>
           ) : (
-            <Styled.Player onClick={stopMusic}>■</Styled.Player>
+            <Styled.Player onClick={stopMusic}>
+              <Icon.TbPlayerPauseFilled />
+            </Styled.Player>
           )}
           <Styled.Message onClick={openMessageModal}>
             New Message

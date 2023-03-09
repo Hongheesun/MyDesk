@@ -7,7 +7,7 @@ import * as Icon from "../../assets/icons";
 
 const Container = styled.div`
   text-align: center;
-  padding-top: 15%;
+  padding-top: 13%;
 `;
 
 const Info = styled.div`
@@ -19,7 +19,7 @@ const LoginButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40%;
+  width: 50%;
   padding: 10px;
   margin: 0 auto;
   border: 3px solid var(--main-green);
@@ -39,6 +39,7 @@ const LoginButton = styled.button`
 const Text = styled.span`
   margin-left: 5%;
   font-weight: 600;
+  color: #000;
 `;
 
 function Welcome() {

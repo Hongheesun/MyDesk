@@ -7,7 +7,7 @@ import { Holiday } from "../../types/type";
 import { Memo2 } from "../../assets/images";
 
 const Container = styled.div`
-  width: 112%;
+  width: 115%;
   height: 80%;
   font-size: 13px;
   text-align: center;
@@ -25,7 +25,8 @@ const Header = styled.div`
 const CalendarWrapper = styled.div`
   width: 73%;
   margin: 0 auto;
-  transform: translatey(42px);
+  transform: translatey(9%);
+  font-size: 12px;
 `;
 
 const requestData = {

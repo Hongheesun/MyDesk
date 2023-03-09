@@ -60,12 +60,16 @@ export const Player = styled.div`
   border-radius: 4px;
   text-align: center;
   cursor: pointer;
+  & svg {
+    font-size: 20px;
+  }
 `;
 
 export const Message = styled(Player)`
   height: 70%;
   margin-top: 7%;
   color: #b93434;
+  font-weight: 700;
 
   &:hover {
     animation: wobble-horizontal 1s infinite;

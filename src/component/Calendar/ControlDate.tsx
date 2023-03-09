@@ -7,6 +7,7 @@ const Container = styled.div`
   align-items: center;
   width: 100%;
   margin-bottom: 10px;
+  color: #000;
 `;
 
 const BtnBox = styled.div`

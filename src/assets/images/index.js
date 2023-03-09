@@ -14,8 +14,9 @@ import Memo2 from "./memo2.png";
 import Memo3 from "./memo3.png";
 import MaskingTape from "./maskingTape.png"; 
 import AllCookies from "./allCookies.png";
+import Clips from "./clip.png";
 
 export { NoteImg, EarphonesImg, PencilImg, PhoneImg, 
   WallPaper1, WallPaper2, WallPaper3, WallPaper4, WallPaper5, WallPaper6,
-  OpenNote, Memo, Memo2, Memo3, MaskingTape, AllCookies
+  OpenNote, Memo, Memo2, Memo3, MaskingTape, AllCookies,Clips
 };
