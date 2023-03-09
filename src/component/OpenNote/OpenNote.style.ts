@@ -47,7 +47,6 @@ export const NoteRightWrapper = styled.div`
   justify-content: space-evenly;
   width: 40%;
   height: 78%;
-  text-align: center;
 `;
 
 export const Wrapper = styled.div`
