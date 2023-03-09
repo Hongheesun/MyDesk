@@ -48,7 +48,7 @@ function Welcome() {
   };
   return (
     <Container>
-      <Info>You have to log in to see the chat!</Info>
+      <Info>Please log in to chat!</Info>
       <LoginButton onClick={googleSignIn}>
         <Icon.FcGoogle />
         <Text>Google Login</Text>
