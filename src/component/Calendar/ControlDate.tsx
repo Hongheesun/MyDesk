@@ -7,7 +7,6 @@ const Container = styled.div`
   align-items: center;
   width: 100%;
   margin-bottom: 10px;
-  color: #000;
 `;
 
 const BtnBox = styled.div`
@@ -16,6 +15,7 @@ const BtnBox = styled.div`
     outline: 0;
     background-color: transparent;
     cursor: pointer;
+    color: #000;
   }
 `;
 

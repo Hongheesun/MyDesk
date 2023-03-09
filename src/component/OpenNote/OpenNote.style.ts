@@ -41,15 +41,17 @@ export const Video = styled.video`
 export const NoteRightWrapper = styled.div`
   position: absolute;
   top: 11.5%;
-  right: 9.5%;
+  right: 4.5%;
   display: flex;
   flex-direction: column;
-  width: 35%;
+  justify-content: space-evenly;
+  width: 40%;
   height: 78%;
+  text-align: center;
 `;
 
 export const Wrapper = styled.div`
-  width: 109%;
+  width: 95%;
   height: 33%;
   padding: 10px;
   margin-left: 12px;

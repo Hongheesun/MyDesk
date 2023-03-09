@@ -7,8 +7,12 @@ import { Holiday } from "../../types/type";
 import { Memo2 } from "../../assets/images";
 
 const Container = styled.div`
-  width: 115%;
-  height: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 50%;
+  padding: 4%;
   font-size: 13px;
   text-align: center;
   background-image: url(${Memo2});
@@ -16,17 +20,12 @@ const Container = styled.div`
   background-repeat: no-repeat;
 `;
 
-const Header = styled.div`
-  font-family: var(--font-note);
-  font-size: 20px;
-  font-weight: 600;
-`;
-
 const CalendarWrapper = styled.div`
-  width: 73%;
-  margin: 0 auto;
-  transform: translatey(9%);
-  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
 `;
 
 const requestData = {
@@ -62,7 +61,7 @@ const Calendar = () => {
 
   return (
     <Container>
-      <Header>Calendar</Header>
+      {/* <Header>Calendar</Header> */}
       <CalendarWrapper>
         <ControlDate nowDate={nowDate} setNowDate={setNowDate} />
         <DateBox
