@@ -34,7 +34,6 @@ function OpenNote() {
   const [openReview, setOpenReview] = useRecoilState(reviewAtom);
   const [note, setNote] = useRecoilState(noteAtom);
   const [review, setReview] = useState<IContent>();
-  const [showReview, setShowReview] = useState<boolean>(false);
   const [content, setContent] = useState<IContent>({
     feeling: "",
     text: "",
@@ -43,6 +42,10 @@ function OpenNote() {
 
   const closeNote = () => {
     setNote(false);
+  };
+
+  const writeReview = () => {
+    setOpenReview(false);
   };
 
   const handleResizeHeight = useCallback(() => {
@@ -122,6 +125,7 @@ function OpenNote() {
                     <Styled.Button>
                       <Icon.MdOutlineDeleteForever onClick={deleteReview} />
                       <Icon.TfiPencil />
+                      <Icon.HiMinusSm onClick={writeReview} />
                     </Styled.Button>
                   )}
                 </>

@@ -23,6 +23,7 @@ interface IStyleProps {
 
 const Container = styled.div<IStyleProps>`
   display: flex;
+  align-items: center;
   width: max-content;
   max-width: calc(100% - 50px);
   margin-left: ${(props) => props.uid === "user" && "auto"};
@@ -42,6 +43,11 @@ const Profile = styled.img`
   margin-right: 10px;
 `;
 
+const Name = styled.p`
+  font-size: 11px;
+  margin-bottom: 2px;
+`;
+
 const Chat = ({ message }: Iprops) => {
   const [user] = useAuthState(auth);
   return (
@@ -52,7 +58,9 @@ const Chat = ({ message }: Iprops) => {
         alt="user avatar"
       />
       <div className="chat-bubble__right">
-        <p className="user-name">{message?.name}</p>
+        {message.uid !== user?.uid && (
+          <Name className="user-name">{message?.name}</Name>
+        )}
         <p className="user-message">{message?.text}</p>
       </div>
     </Container>
