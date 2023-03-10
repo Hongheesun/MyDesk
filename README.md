@@ -1,17 +1,17 @@
 <br />
 <div align="center">
-  <h1>My Desk</h1>
+  <h1>🖉 My Desk 🖉</h1>
   <img src="https://user-images.githubusercontent.com/91399033/224224015-c960dd9b-ad3e-4741-a8bc-d661e3907e0f.png" alt="Logo" >
 </div>
 
 #### My Own Desk
 
 <br /><br />
-## Link ♪
+## Link 🖉
 https://hongheesun.github.io/MyDesk/
 
 <br /><br />
-## Info ♪
+## Info 🖉
 ```
 - Music Player
 - Calendar
@@ -37,7 +37,7 @@ https://hongheesun.github.io/MyDesk/
 
 
 <br /><br />
-## Stacks ♪
+## Stacks 🖉
 ```
 - React with TypeScript
 - Recoil
