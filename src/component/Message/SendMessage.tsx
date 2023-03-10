@@ -9,10 +9,7 @@ interface Iprops {
 }
 
 const Form = styled.form`
-  position: fixed;
-  bottom: 4%;
-  z-index: 2;
-  width: 318px;
+  width: 110%;
 `;
 
 const Input = styled.input`

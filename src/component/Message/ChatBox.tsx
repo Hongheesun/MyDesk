@@ -16,7 +16,8 @@ interface IMessage {
 
 const Container = styled.div`
   padding: 5%;
-  padding-bottom: 10%;
+  display: flex;
+  flex-flow: column;
 `;
 
 const ChatBox = () => {
