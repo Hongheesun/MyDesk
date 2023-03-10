@@ -47,5 +47,8 @@ https://hongheesun.github.io/MyDesk/
 ```
 
 <br /><br />
+** Phone Background Img Source : Naver Blog @hyuneee_d
+
 <hr>
 <b>I recommend viewing this project on the web or on a pad. ⭐️</b>
+  <br /><br />
