@@ -48,12 +48,12 @@ function OpenNote() {
     setOpenReview(false);
   };
 
-  const handleResizeHeight = useCallback(() => {
+  const handleResizeHeight = () => {
     if (ref === null || ref.current === null) {
       return;
     }
     ref.current.style.height = "100px";
-  }, []);
+  };
 
   const getData = () => {
     const q = query(
